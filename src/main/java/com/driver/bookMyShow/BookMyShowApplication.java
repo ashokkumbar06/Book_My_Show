@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BookMyShowApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookMyShowApplication.class, args);
+        SpringApplication.run(BookMyShowApplication.class, args);
+        System.out.println("    A       SSSSSSS     H       H     OOOOOO     K      K  ");
+        System.out.println("   A A      S     S     H       H     O    O     K    K    ");
+        System.out.println("  AA~AA     S     s     H H H H H     O    O     K K       ");
+        System.out.println(" A     A    S     S     H       H     O    O     K    K    ");
+        System.out.println("A       A   SSSSSSS     H       H     OOOOOO     K      K  ");
 	}
 
 //TODO:

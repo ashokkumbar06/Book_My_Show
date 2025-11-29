@@ -25,8 +25,8 @@ public class MovieService {
     private ShowRepository showRepository;
 
     public String addMovie(MovieEntryDto movieEntryDto) throws MovieAlreadyPresentWithSameNameAndLanguage {
-        if(movieRepository.findByMovieName(movieEntryDto.getMovieName()) != null) {
-            if(movieRepository.findByMovieName(movieEntryDto.getMovieName()).getLanguage().equals(movieEntryDto.getLanguage())){
+        if (movieRepository.findByMovieName(movieEntryDto.getMovieName()) != null) {
+            if (movieRepository.findByMovieName(movieEntryDto.getMovieName()).getLanguage().equals(movieEntryDto.getLanguage())) {
                 throw new MovieAlreadyPresentWithSameNameAndLanguage();
             }
         }
@@ -37,14 +37,14 @@ public class MovieService {
 
     public Long totalCollection(Integer movieId) throws MovieDoesNotExists {
         Optional<Movie> movieOpt = movieRepository.findById(movieId);
-        if(movieOpt.isEmpty()) {
+        if (movieOpt.isEmpty()) {
             throw new MovieDoesNotExists();
         }
         List<Show> showListOfMovie = showRepository.getAllShowsOfMovie(movieId);
         long ammount = 0;
-        for(Show show : showListOfMovie) {
-            for(Ticket ticket : show.getTicketList()) {
-                ammount += (long)ticket.getTotalTicketsPrice();
+        for (Show show : showListOfMovie) {
+            for (Ticket ticket : show.getTicketList()) {
+                ammount += (long) ticket.getTotalTicketsPrice();
             }
         }
         return ammount;
